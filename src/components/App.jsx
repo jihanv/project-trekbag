@@ -8,13 +8,31 @@ import { initalItems } from "../lib/constants";
 
 function App() {
   const [items, setItems] = useState(initalItems);
+
+  const handleAddItem = (itemText) => {
+    const itemToAdd = {
+      id: new Date().getTime(),
+      name: itemText,
+      packed: false,
+    };
+    const newItems = [...items, itemToAdd];
+    setItems(newItems);
+  };
+
+  const handleRemoveAllItems = () => {
+    setItems([]);
+  };
+
   return (
     <>
       <BackgroundHeading />
       <main>
         <Header />
-        <ItemList items={items} setItems={setItems} />
-        <Sidebar setItems={setItems} />
+        <ItemList items={items} />
+        <Sidebar
+          handleAddItem={handleAddItem}
+          handleRemoveAllItems={handleRemoveAllItems}
+        />
       </main>
       <Footer />
     </>

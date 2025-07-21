@@ -1,6 +1,9 @@
-export default function Button({ children, type }) {
+export default function Button({ children, buttonType, onClick }) {
   return (
-    <button className={`btn ${type === "secondary" ? "btn--secondary" : ""}`}>
+    <button
+      className={`btn ${buttonType === "secondary" ? "btn--secondary" : ""}`}
+      onClick={onClick}
+    >
       {children}
     </button>
   );
