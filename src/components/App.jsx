@@ -23,6 +23,23 @@ function App() {
     setItems([]);
   };
 
+  const handleResetToInitial = () => {
+    setItems(initalItems);
+  };
+
+  const handleMarkAllAsComplete = () => {
+    const completed = items.map((item) => {
+      return { ...item, packed: true };
+    });
+    setItems(completed);
+  };
+
+  const handleMarkAllAsIncomplete = () => {
+    const incomplete = items.map((item) => {
+      return { ...item, packed: false };
+    });
+    setItems(incomplete);
+  };
   return (
     <>
       <BackgroundHeading />
@@ -32,6 +49,9 @@ function App() {
         <Sidebar
           handleAddItem={handleAddItem}
           handleRemoveAllItems={handleRemoveAllItems}
+          handleResetToInitial={handleResetToInitial}
+          handleMarkAllAsComplete={handleMarkAllAsComplete}
+          handleMarkAllAsIncomplete={handleMarkAllAsIncomplete}
         />
       </main>
       <Footer />
