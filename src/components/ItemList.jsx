@@ -1,8 +1,4 @@
-import { useState } from "react";
-import { initalItems } from "../lib/constants";
-
-export default function ItemList() {
-  const [items, setItems] = useState(initalItems);
+export default function ItemList({ items }) {
   return (
     <ul>
       {items.map((item) => (
