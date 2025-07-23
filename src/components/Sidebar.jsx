@@ -1,6 +1,5 @@
 import AddItemForm from "../AddItemForm";
 import ButtonGroup from "./ButtonGroup";
-import { useItemsContext } from "../lib/hooks";
 import { useItemsStore } from "../stores/itemsStore";
 
 export default function Sidebar() {
